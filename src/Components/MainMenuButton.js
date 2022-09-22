@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
-export const PlusButton = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+export const MainMenuButton = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -23,7 +23,7 @@ export const PlusButton = () => {
         aria-expanded={open ? "true" : undefined}
       >
         <i
-          className="fas fa-plus"
+          className="fas fa-bars"
           style={{ color: "white", fontSize: "22px" }}
         ></i>
       </Button>
