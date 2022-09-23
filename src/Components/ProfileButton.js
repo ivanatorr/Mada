@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import Divider from "@mui/material/Divider";
 import Button from "@material-ui/core/Button";
 import Menu from "@mui/material/Menu";
+
 import MenuItem from "@mui/material/MenuItem";
 
 export const ProfileButton = () => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -37,6 +41,11 @@ export const ProfileButton = () => {
         }}
       >
         <MenuItem onClick={handleClose}>Title 1</MenuItem>
+        <MenuItem onClick={handleClose}>Title 2</MenuItem>
+        <Divider />
+        <MenuItem onClick={handleClose}>Title 3</MenuItem>
+
+        <Divider />
         <MenuItem onClick={handleClose}>Title 2</MenuItem>
         <MenuItem onClick={handleClose}>Title 3</MenuItem>
       </Menu>

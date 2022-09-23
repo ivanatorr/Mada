@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Divider from "@mui/material/Divider";
 
 export const MainMenuButton = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -37,6 +38,11 @@ export const MainMenuButton = () => {
         }}
       >
         <MenuItem onClick={handleClose}>Title 1</MenuItem>
+        <MenuItem onClick={handleClose}>Title 2</MenuItem>
+        <Divider />
+        <MenuItem onClick={handleClose}>Title 3</MenuItem>
+        <MenuItem onClick={handleClose}>Title 1</MenuItem>
+        <Divider />
         <MenuItem onClick={handleClose}>Title 2</MenuItem>
         <MenuItem onClick={handleClose}>Title 3</MenuItem>
       </Menu>

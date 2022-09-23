@@ -41,9 +41,11 @@
   position: absolute;
   left: 50px;
   top: 64px;
-  bottom: 0;
-  width: 175px;
-  border-right: 1px solid rgb(164, 161, 161);
+  bottom: 0 !important;
+  height: 89.8vh !important;
+  min-width: 175px;
+  max-width: 500px;
+  border-right: 3px solid rgb(164, 161, 161);
 }
 .schemaListText {
   margin-left: -30px;
