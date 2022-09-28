@@ -1,0 +1,52 @@
+{
+    "data": [
+        {
+            "_id": "630e03382c9d1a29ba004c94",
+            "name": "pipline 1",
+            "displayName": "pipline1",
+            "author": "root",
+            "description": "",
+            "created": "2022-08-30T12:31:52.698000+0000",
+            "modified": "2022-08-30T12:31:52.698000+0000",
+            "modifier": "root",
+            "version": "1",
+            "uuid": "951cc24a-02cd-4939-bdb7-64064b528cf7",
+            "author_info": {
+                "user": "root",
+                "displayName": "Administrator",
+                "disabled": false
+            },
+            "modifier_info": {
+                "user": "root",
+                "displayName": "Administrator",
+                "disabled": false
+            }
+        },
+        {
+            "_id": "630e03832c9d1a30aa004c94",
+            "name": "pipline 2",
+            "displayName": "pipline2",
+            "author": "root",
+            "description": "",
+            "created": "2022-08-30T12:31:52.698000+0000",
+            "modified": "2022-08-30T12:31:52.698000+0000",
+            "modifier": "root",
+            "version": "2",
+            "uuid": "951cc24a-02cd-4939-bdb7-64064b528cf7",
+            "author_info": {
+                "user": "root",
+                "displayName": "Administrator",
+                "disabled": false
+            },
+            "modifier_info": {
+                "user": "root",
+                "displayName": "Administrator",
+                "disabled": false
+            }
+        }
+    ],
+    "error": {
+        "code": 0,
+        "message": null
+    }
+}
