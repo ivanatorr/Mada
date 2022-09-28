@@ -44,7 +44,6 @@ export const ProfileButton = () => {
         <MenuItem onClick={handleClose}>Title 2</MenuItem>
         <Divider />
         <MenuItem onClick={handleClose}>Title 3</MenuItem>
-
         <Divider />
         <MenuItem onClick={handleClose}>Title 2</MenuItem>
         <MenuItem onClick={handleClose}>Title 3</MenuItem>
