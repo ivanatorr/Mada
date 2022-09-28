@@ -4,14 +4,14 @@ import ListItemText from "@mui/material/ListItemText";
 import moment from "moment";
 import Pipelines from "../resources/pipeline-data.json";
 
-export const WorkSpacePipelines = () => {
+export const WorkSpacePipelines = (onClick) => {
   return (
     <div className="workSpacePosition">
       {Pipelines &&
         Pipelines.data.map((pipeline) => {
           return (
             <>
-              <List className="cardList">
+              <List className="cardList" onClick={onClick}>
                 <ListItemText>Name:{pipeline.name}</ListItemText>
                 <ListItemText>File name:{pipeline.displayName}</ListItemText>
                 <ListItemText>

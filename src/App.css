@@ -65,7 +65,7 @@
   bottom: 0 !important;
   height: 100vh !important;
   overflow: hidden;
-  min-width: 175px;
+  min-width: 300px;
   max-width: 500px;
   border-right: 3px solid rgb(164, 161, 161);
 }

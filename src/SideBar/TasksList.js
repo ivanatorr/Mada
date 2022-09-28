@@ -85,7 +85,7 @@ export const TasksList = () => {
                           File name:{task.displayName}
                         </ListItemText>
                         <ListItemText>
-                          Date of foundation:
+                          Date of creating:
                           {moment(task.created).format("MM.DD.YY hh:mm:ss")}
                         </ListItemText>
                         <ListItemText>
@@ -104,17 +104,6 @@ export const TasksList = () => {
               </>
             );
           })}
-        {/* <Accordion
-        expanded={expanded === "task2"}
-        onChange={handleChange("task2")}
-      >
-        <AccordionSummary>
-          <Typography>task 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>task 2</Typography>
-        </AccordionDetails>
-      </Accordion> */}
       </Resizable>
     </>
   );

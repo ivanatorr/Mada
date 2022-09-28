@@ -48,12 +48,15 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export const PipelineList = () => {
+  const [isShown, setIsShown] = useState(false);
   const [state, setState] = useState({ width: 175 });
   const [expanded, setExpanded] = useState(null);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
+    setIsShown(current => !current);
   };
+  
 
   return (
     <>
@@ -73,6 +76,7 @@ export const PipelineList = () => {
                 key={task._id}
                 expanded={expanded === task.displayName}
                 onChange={handleChange(task.displayName)}
+               
               >
                 <AccordionSummary>
                   <Typography>{task.name}</Typography>
@@ -83,7 +87,7 @@ export const PipelineList = () => {
                       <ListItemText>Name:{task.name}</ListItemText>
                       <ListItemText>File name:{task.displayName}</ListItemText>
                       <ListItemText>
-                        Date of foundation:
+                        Date of creating:
                         {moment(task.created).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
                       <ListItemText>
@@ -102,7 +106,8 @@ export const PipelineList = () => {
             );
           })}
       </Resizable>
-      <WorkSpacePipelines />
+      {isShown && <WorkSpacePipelines onClick={handleChange(Pipelines.data.displayName)}/>}
+      
     </>
   );
 };
