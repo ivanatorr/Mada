@@ -1,4 +1,4 @@
-.body{
+.body {
   height: 100vh !important;
   overflow-y: hidden !important;
 }
@@ -19,7 +19,17 @@
   position: relative;
   margin-left: 80%;
 }
+.cardListContent {
+  min-height: 200px;
+}
+.cardList {
+  list-style-type: none;
 
+  text-align: left;
+}
+.cardList ListItemText {
+  display: inline-block;
+}
 .h1 {
   margin-right: 50%;
 }
@@ -36,7 +46,7 @@
   position: absolute;
   left: 0;
   height: 100vh !important;
-  overflow:hidden;
+  overflow: hidden;
   top: 64px;
   bottom: 0;
   width: 50px;
@@ -49,7 +59,7 @@
   top: 64px;
   bottom: 0 !important;
   height: 100vh !important;
-  overflow:hidden;
+  overflow: hidden;
   min-width: 175px;
   max-width: 500px;
   border-right: 3px solid rgb(164, 161, 161);
