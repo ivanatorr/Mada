@@ -9,6 +9,9 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import { Resizable } from "re-resizable";
+import moment from "moment";
+import Pipelines from "../resources/pipeline-data.json";
+import { WorkSpacePipelines } from "./WorkSpacePipelines";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -53,48 +56,53 @@ export const PipelineList = () => {
   };
 
   return (
-    <Resizable
-      className="schemaListPosition"
-      size={{ width: state.width }}
-      onResizeStop={(d) => {
-        setState({
-          width: state.width + d.width,
-        });
-      }}
-    >
-      <Accordion
-        expanded={expanded === "pipeline1"}
-        onChange={handleChange("pipeline1")}
+    <>
+      <Resizable
+        className="schemaListPosition"
+        size={{ width: state.width }}
+        onResizeStop={(d) => {
+          setState({
+            width: state.width + d.width,
+          });
+        }}
       >
-        <AccordionSummary>
-          <Typography>pipline 1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box>
-            <List className="cardList">
-              <ListItemText>Name:</ListItemText>
-              <ListItemText>File name:</ListItemText>
-              <ListItemText>Date of foundation:</ListItemText>
-              <ListItemText>Date of change:</ListItemText>
-              <ListItemText>Author:</ListItemText>
-              <ListItemText>Author of change:</ListItemText>
-              <ListItemText>Version:</ListItemText>
-              <ListItemText>Number of dictinary:</ListItemText>
-            </List>
-          </Box>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "pipeline2"}
-        onChange={handleChange("pipeline2")}
-      >
-        <AccordionSummary>
-          <Typography>pipeline 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>pipline 2</Typography>
-        </AccordionDetails>
-      </Accordion>
-    </Resizable>
+        {Pipelines &&
+          Pipelines.data.map((task) => {
+            return (
+              <Accordion
+                key={task._id}
+                expanded={expanded === task.displayName}
+                onChange={handleChange(task.displayName)}
+              >
+                <AccordionSummary>
+                  <Typography>{task.name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box>
+                    <List className="cardList">
+                      <ListItemText>Name:{task.name}</ListItemText>
+                      <ListItemText>File name:{task.displayName}</ListItemText>
+                      <ListItemText>
+                        Date of foundation:
+                        {moment(task.created).format("MM.DD.YY hh:mm:ss")}
+                      </ListItemText>
+                      <ListItemText>
+                        Date of change:
+                        {moment(task.modified).format("MM.DD.YY hh:mm:ss")}
+                      </ListItemText>
+                      <ListItemText>Author:{task.author}</ListItemText>
+                      <ListItemText>
+                        Author of change:{task.modifier}
+                      </ListItemText>
+                      <ListItemText>Version:{task.version}</ListItemText>
+                    </List>
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
+            );
+          })}
+      </Resizable>
+      <WorkSpacePipelines />
+    </>
   );
 };

@@ -39,7 +39,12 @@
   right: 0;
   max-height: 50px !important;
 }
-.sideBarElementsPosition {
+.workSpacePosition {
+  position: absolute;
+  float: left;
+  left: 600px;
+  bottom: 0;
+  top: 64px;
 }
 .sideBarPosition {
   text-align: center;
