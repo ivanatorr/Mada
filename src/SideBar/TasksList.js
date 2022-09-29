@@ -48,13 +48,18 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export const TasksList = () => {
+  const [highlight, setHighlight] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const [state, setState] = useState({ width: 175 });
   const [expanded, setExpanded] = useState(null);
 
+  const handleClick = () => {
+    setIsShown((current) => !current);
+    setHighlight(!highlight);
+  };
+
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
-    setIsShown((current) => !current);
   };
 
   return (
@@ -76,10 +81,12 @@ export const TasksList = () => {
                 expanded={expanded === task.displayName}
                 onChange={handleChange(task.displayName)}
               >
-                <AccordionSummary>
+                <AccordionSummary onClick={handleClick}>
                   <Typography>{task.name}</Typography>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails
+                  sx={{ bgcolor: highlight ? "lightblue" : "unset" }}
+                >
                   <Box>
                     <List className="cardList">
                       <ListItemText>
