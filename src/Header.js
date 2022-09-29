@@ -28,10 +28,10 @@ const Header = () => {
     <div>
       <div className="headerPosition">
         <header>
-          <AppBar>
+          <AppBar className="z-app-bar">
             <Toolbar>
+              <i className="fas fa-brain" style={{ color: "white", fontSize: "32px", marginRight: "10px"}}></i>
               <Typography variant="h6">Mada</Typography>
-
               <div className="mainHeader">
                 <div className="footer">
                   <PlusButton />

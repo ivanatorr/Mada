@@ -84,21 +84,19 @@ export const PipelineList = () => {
                 <AccordionDetails>
                   <Box>
                     <List className="cardList">
-                      <ListItemText>Name:{task.name}</ListItemText>
-                      <ListItemText>File name:{task.displayName}</ListItemText>
+                      <ListItemText><b>Name: </b>{task.name}</ListItemText>
+                      <ListItemText><b>File name: </b>{task.displayName}</ListItemText>
                       <ListItemText>
-                        Date of creating:
+                        <b>Date of creating: </b>
                         {moment(task.created).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
                       <ListItemText>
-                        Date of change:
+                        <b>Date of change: </b>
                         {moment(task.modified).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
-                      <ListItemText>Author:{task.author}</ListItemText>
-                      <ListItemText>
-                        Author of change:{task.modifier}
-                      </ListItemText>
-                      <ListItemText>Version:{task.version}</ListItemText>
+                      <ListItemText><b>Author: </b>{task.author}</ListItemText>
+                      <ListItemText><b>Author of change: </b>{task.modifier}</ListItemText>
+                      <ListItemText><b>Version: </b>{task.version}</ListItemText>
                     </List>
                   </Box>
                 </AccordionDetails>
