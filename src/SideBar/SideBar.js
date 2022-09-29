@@ -15,7 +15,10 @@ export const SideBar = () => {
               <Link to="/pipelines">
                 <i
                   className="fas fa-project-diagram"
-                  style={{ color: "grey", fontSize: "22px" }}
+                  style={{
+                    color: "grey",
+                    fontSize: "22px",
+                  }}
                 ></i>
               </Link>
             </ListItemIcon>
@@ -26,8 +29,12 @@ export const SideBar = () => {
             <ListItemIcon>
               <Link to="/tasks">
                 <i
-                  className="fas fa-edit"
-                  style={{ color: "grey", fontSize: "22px" }}
+                  className="far fa-file-alt"
+                  style={{
+                    color: "grey",
+                    fontSize: "26px",
+                    marginRight: "2px",
+                  }}
                 ></i>
               </Link>
             </ListItemIcon>

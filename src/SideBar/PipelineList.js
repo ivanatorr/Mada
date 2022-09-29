@@ -54,9 +54,8 @@ export const PipelineList = () => {
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
-    setIsShown(current => !current);
+    setIsShown((current) => !current);
   };
-  
 
   return (
     <>
@@ -70,33 +69,47 @@ export const PipelineList = () => {
         }}
       >
         {Pipelines &&
-          Pipelines.data.map((task) => {
+          Pipelines.data.map((pipeline) => {
             return (
               <Accordion
-                key={task._id}
-                expanded={expanded === task.displayName}
-                onChange={handleChange(task.displayName)}
-               
+                key={pipeline._id}
+                expanded={expanded === pipeline.displayName}
+                onChange={handleChange(pipeline.displayName)}
               >
                 <AccordionSummary>
-                  <Typography>{task.name}</Typography>
+                  <Typography>{pipeline.name}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Box>
                     <List className="cardList">
-                      <ListItemText><b>Name: </b>{task.name}</ListItemText>
-                      <ListItemText><b>File name: </b>{task.displayName}</ListItemText>
+                      <ListItemText>
+                        <b>Name: </b>
+                        {pipeline.name}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>File name: </b>
+                        {pipeline.displayName}
+                      </ListItemText>
                       <ListItemText>
                         <b>Date of creating: </b>
-                        {moment(task.created).format("MM.DD.YY hh:mm:ss")}
+                        {moment(pipeline.created).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
                       <ListItemText>
                         <b>Date of change: </b>
-                        {moment(task.modified).format("MM.DD.YY hh:mm:ss")}
+                        {moment(pipeline.modified).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
-                      <ListItemText><b>Author: </b>{task.author}</ListItemText>
-                      <ListItemText><b>Author of change: </b>{task.modifier}</ListItemText>
-                      <ListItemText><b>Version: </b>{task.version}</ListItemText>
+                      <ListItemText>
+                        <b>Author: </b>
+                        {pipeline.author}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Author of change: </b>
+                        {pipeline.modifier}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Version: </b>
+                        {pipeline.version}
+                      </ListItemText>
                     </List>
                   </Box>
                 </AccordionDetails>
@@ -104,8 +117,11 @@ export const PipelineList = () => {
             );
           })}
       </Resizable>
-      {isShown && <WorkSpacePipelines onClick={handleChange(Pipelines.data.displayName)}/>}
-      
+      {isShown && (
+        <WorkSpacePipelines
+          onClick={handleChange(Pipelines.data.displayName)}
+        />
+      )}
     </>
   );
 };

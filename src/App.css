@@ -92,4 +92,5 @@
 
 .z-app-bar {
   background-color: #2a3f5d !important;
+  padding-right: 0 !important;
 }

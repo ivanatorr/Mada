@@ -9,8 +9,9 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItemText from "@mui/material/ListItemText";
 import { Resizable } from "re-resizable";
-import Tasks from "../resources/tasks-data.json";
 import moment from "moment";
+import Tasks from "../resources/tasks-data.json";
+import { WorkSpaceTasks } from "./WorkSpaceTasks";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -47,11 +48,13 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export const TasksList = () => {
+  const [isShown, setIsShown] = useState(false);
   const [state, setState] = useState({ width: 175 });
   const [expanded, setExpanded] = useState(null);
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
+    setIsShown((current) => !current);
   };
 
   return (
@@ -68,39 +71,55 @@ export const TasksList = () => {
         {Tasks &&
           Tasks.data.map((task) => {
             return (
-              <>
-                <Accordion
-                  key={task._id}
-                  expanded={expanded === task.displayName}
-                  onChange={handleChange(task.displayName)}
-                >
-                  <AccordionSummary>
-                    <Typography>{task.name}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Box>
-                      <List className="cardList">
-                        <ListItemText><b>Name: </b>{task.name}</ListItemText>
-                        <ListItemText><b>File name: </b>{task.displayName}</ListItemText>
-                        <ListItemText>
-                          <b>Date of creating: </b>
-                          {moment(task.created).format("MM.DD.YY hh:mm:ss")}
-                        </ListItemText>
-                        <ListItemText>
-                          <b>Date of change: </b> 
-                          {moment(task.modified).format("MM.DD.YY hh:mm:ss")}
-                          </ListItemText>
-                        <ListItemText><b>Author: </b>{task.author}</ListItemText>
-                        <ListItemText><b>Author of change: </b>{task.modifier}</ListItemText>
-                        <ListItemText><b>Version: </b>{task.version}</ListItemText>
-                      </List>
-                    </Box>
-                  </AccordionDetails>
-                </Accordion>
-              </>
+              <Accordion
+                key={task._id}
+                expanded={expanded === task.displayName}
+                onChange={handleChange(task.displayName)}
+              >
+                <AccordionSummary>
+                  <Typography>{task.name}</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Box>
+                    <List className="cardList">
+                      <ListItemText>
+                        <b>Name: </b>
+                        {task.name}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>File name: </b>
+                        {task.displayName}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Date of creating: </b>
+                        {moment(task.created).format("MM.DD.YY hh:mm:ss")}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Date of change: </b>
+                        {moment(task.modified).format("MM.DD.YY hh:mm:ss")}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Author: </b>
+                        {task.author}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Author of change: </b>
+                        {task.modifier}
+                      </ListItemText>
+                      <ListItemText>
+                        <b>Version: </b>
+                        {task.version}
+                      </ListItemText>
+                    </List>
+                  </Box>
+                </AccordionDetails>
+              </Accordion>
             );
           })}
       </Resizable>
+      {isShown && (
+        <WorkSpaceTasks onClick={handleChange(Tasks.data.displayName)} />
+      )}
     </>
   );
 };
