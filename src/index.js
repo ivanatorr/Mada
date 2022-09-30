@@ -3,13 +3,16 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import "./services/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CssBaseline />
-      <App />
+      <React.Suspense fallback="Loading...">
+        <App />
+      </React.Suspense>
     </BrowserRouter>
   </React.StrictMode>
 );

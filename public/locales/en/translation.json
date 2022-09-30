@@ -1,0 +1,9 @@
+{
+    "mode_name":"Name",
+    "file_name":"File name",
+    "date_of_creating_name":"Created",
+    "date_of_change_name":"Changed",
+    "author_name":"Author",
+    "author_of_change_name":"Author of change",
+    "version_name":"Version"
+}

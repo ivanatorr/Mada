@@ -12,6 +12,7 @@ import { Resizable } from "re-resizable";
 import moment from "moment";
 import Pipelines from "../resources/pipeline-data.json";
 import { WorkSpacePipelines } from "./WorkSpacePipelines";
+import { useTranslation } from "react-i18next";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -61,6 +62,7 @@ export const PipelineList = () => {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+  const { t } = useTranslation();
 
   return (
     <>
@@ -90,31 +92,31 @@ export const PipelineList = () => {
                   <Box>
                     <List className="cardList">
                       <ListItemText>
-                        <b>Name: </b>
+                        <b>{t("mode_name")}: </b>
                         {pipeline.name}
                       </ListItemText>
                       <ListItemText>
-                        <b>File name: </b>
+                        <b>{t("file_name")} </b>
                         {pipeline.displayName}
                       </ListItemText>
                       <ListItemText>
-                        <b>Date of creating: </b>
+                        <b>{t("date_of_creating_name")}: </b>
                         {moment(pipeline.created).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
                       <ListItemText>
-                        <b>Date of change: </b>
+                        <b>{t("date_of_change_name")}: </b>
                         {moment(pipeline.modified).format("MM.DD.YY hh:mm:ss")}
                       </ListItemText>
                       <ListItemText>
-                        <b>Author: </b>
+                        <b>{t("author_name")}:</b>
                         {pipeline.author}
                       </ListItemText>
                       <ListItemText>
-                        <b>Author of change: </b>
+                        <b>{t("author_of_change_name")}: </b>
                         {pipeline.modifier}
                       </ListItemText>
                       <ListItemText>
-                        <b>Version: </b>
+                        <b>{t("version_name")}:</b>
                         {pipeline.version}
                       </ListItemText>
                     </List>
